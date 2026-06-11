@@ -50,3 +50,11 @@ jobs:
 
     - name: Build with Gradle
       run: ./gradlew assembleRelease
+          - name: Find APK
+      run: find . -name "*.apk"
+
+    - name: Upload APK
+      uses: actions/upload-artifact@v4
+      with:
+        name: APK
+        path: "**/*.apk"
